@@ -1,0 +1,7 @@
+    {{ task_var }} = SQLExecuteQueryOperator(
+        task_id="{{ task_id }}",
+        conn_id="{{ conn_id }}",
+        sql=r"""
+{{ sql | indent(8, true) }}
+        """,
+    )

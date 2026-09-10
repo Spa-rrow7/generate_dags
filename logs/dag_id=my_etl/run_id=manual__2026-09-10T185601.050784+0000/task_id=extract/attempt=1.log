@@ -1,0 +1,22 @@
+[2026-09-10T18:56:02.022+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-10T18:56:02.046+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_etl.extract manual__2026-09-10T18:56:01.050784+00:00 [queued]>
+[2026-09-10T18:56:02.053+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_etl.extract manual__2026-09-10T18:56:01.050784+00:00 [queued]>
+[2026-09-10T18:56:02.054+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-10T18:56:02.066+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract> on 2026-09-10 18:56:01.050784+00:00
+[2026-09-10T18:56:02.074+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=74) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-09-10T18:56:02.076+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'my_etl', 'extract', 'manual__2026-09-10T18:56:01.050784+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/gen_my_etl.py', '--cfg-path', '/tmp/tmp0egaof_z']
+[2026-09-10T18:56:02.076+0000] {standard_task_runner.py:63} INFO - Started process 75 to run task
+[2026-09-10T18:56:02.077+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask extract
+[2026-09-10T18:56:02.129+0000] {task_command.py:426} INFO - Running <TaskInstance: my_etl.extract manual__2026-09-10T18:56:01.050784+00:00 [running]> on host e689c14634bc
+[2026-09-10T18:56:02.210+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='generator' AIRFLOW_CTX_DAG_ID='my_etl' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2026-09-10T18:56:01.050784+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-10T18:56:01.050784+00:00'
+[2026-09-10T18:56:02.212+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-10T18:56:02.230+0000] {my_etl.py:9} INFO - extract: начало выгрузки
+[2026-09-10T18:56:02.231+0000] {my_etl.py:11} INFO - extract: получено 10 строк
+[2026-09-10T18:56:02.231+0000] {python.py:237} INFO - Done. Returned value was: [{'id': 1, 'value': 96}, {'id': 2, 'value': 10}, {'id': 3, 'value': 91}, {'id': 4, 'value': 17}, {'id': 5, 'value': 70}, {'id': 6, 'value': 18}, {'id': 7, 'value': 8}, {'id': 8, 'value': 96}, {'id': 9, 'value': 62}, {'id': 10, 'value': 7}]
+[2026-09-10T18:56:02.232+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-10T18:56:02.257+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=my_etl, task_id=extract, run_id=manual__2026-09-10T18:56:01.050784+00:00, execution_date=20260910T185601, start_date=20260910T185602, end_date=20260910T185602
+[2026-09-10T18:56:02.291+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-09-10T18:56:02.315+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-10T18:56:02.317+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

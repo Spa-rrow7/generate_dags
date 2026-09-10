@@ -1,0 +1,35 @@
+[2026-09-10T18:56:03.162+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-10T18:56:03.187+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orders_agg.sql_00_create manual__2026-09-10T18:56:02.263835+00:00 [queued]>
+[2026-09-10T18:56:03.193+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orders_agg.sql_00_create manual__2026-09-10T18:56:02.263835+00:00 [queued]>
+[2026-09-10T18:56:03.194+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-10T18:56:03.207+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): sql_00_create> on 2026-09-10 18:56:02.263835+00:00
+[2026-09-10T18:56:03.214+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=77) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-09-10T18:56:03.216+0000] {standard_task_runner.py:63} INFO - Started process 79 to run task
+[2026-09-10T18:56:03.216+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'orders_agg', 'sql_00_create', 'manual__2026-09-10T18:56:02.263835+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/gen_orders_agg.py', '--cfg-path', '/tmp/tmp6pvjph6y']
+[2026-09-10T18:56:03.217+0000] {standard_task_runner.py:91} INFO - Job 32: Subtask sql_00_create
+[2026-09-10T18:56:03.270+0000] {task_command.py:426} INFO - Running <TaskInstance: orders_agg.sql_00_create manual__2026-09-10T18:56:02.263835+00:00 [running]> on host e689c14634bc
+[2026-09-10T18:56:03.354+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='generator' AIRFLOW_CTX_DAG_ID='orders_agg' AIRFLOW_CTX_TASK_ID='sql_00_create' AIRFLOW_CTX_EXECUTION_DATE='2026-09-10T18:56:02.263835+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-10T18:56:02.263835+00:00'
+[2026-09-10T18:56:03.356+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-10T18:56:03.369+0000] {sql.py:276} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS orders_daily (
+            order_date date PRIMARY KEY,
+            cnt        int,
+            total_sum  numeric(14,2)
+        )
+        
+[2026-09-10T18:56:03.379+0000] {base.py:84} INFO - Using connection ID 'pg_extra_conn' for task execution.
+[2026-09-10T18:56:03.390+0000] {base.py:84} INFO - Using connection ID 'pg_extra_conn' for task execution.
+[2026-09-10T18:56:03.396+0000] {sql.py:487} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS orders_daily (
+            order_date date PRIMARY KEY,
+            cnt        int,
+            total_sum  numeric(14,2)
+        )
+        , parameters: None
+[2026-09-10T18:56:03.400+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-10T18:56:03.412+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=orders_agg, task_id=sql_00_create, run_id=manual__2026-09-10T18:56:02.263835+00:00, execution_date=20260910T185602, start_date=20260910T185603, end_date=20260910T185603
+[2026-09-10T18:56:03.470+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-09-10T18:56:03.494+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-10T18:56:03.496+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

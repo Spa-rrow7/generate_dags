@@ -1,0 +1,32 @@
+[2026-09-10T18:56:07.995+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-10T18:56:08.020+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orders_agg.sql_04_select manual__2026-09-10T18:56:02.263835+00:00 [queued]>
+[2026-09-10T18:56:08.027+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orders_agg.sql_04_select manual__2026-09-10T18:56:02.263835+00:00 [queued]>
+[2026-09-10T18:56:08.028+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-10T18:56:08.038+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): sql_04_select> on 2026-09-10 18:56:02.263835+00:00
+[2026-09-10T18:56:08.045+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=95) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-09-10T18:56:08.046+0000] {standard_task_runner.py:63} INFO - Started process 96 to run task
+[2026-09-10T18:56:08.047+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'orders_agg', 'sql_04_select', 'manual__2026-09-10T18:56:02.263835+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/gen_orders_agg.py', '--cfg-path', '/tmp/tmprjynv3ml']
+[2026-09-10T18:56:08.048+0000] {standard_task_runner.py:91} INFO - Job 37: Subtask sql_04_select
+[2026-09-10T18:56:08.091+0000] {task_command.py:426} INFO - Running <TaskInstance: orders_agg.sql_04_select manual__2026-09-10T18:56:02.263835+00:00 [running]> on host e689c14634bc
+[2026-09-10T18:56:08.171+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='generator' AIRFLOW_CTX_DAG_ID='orders_agg' AIRFLOW_CTX_TASK_ID='sql_04_select' AIRFLOW_CTX_EXECUTION_DATE='2026-09-10T18:56:02.263835+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-10T18:56:02.263835+00:00'
+[2026-09-10T18:56:08.173+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-10T18:56:08.185+0000] {sql.py:276} INFO - Executing: 
+        SELECT order_date, cnt, total_sum
+        FROM orders_daily
+        WHERE order_date = CURRENT_DATE;
+        
+[2026-09-10T18:56:08.195+0000] {base.py:84} INFO - Using connection ID 'pg_extra_conn' for task execution.
+[2026-09-10T18:56:08.205+0000] {base.py:84} INFO - Using connection ID 'pg_extra_conn' for task execution.
+[2026-09-10T18:56:08.210+0000] {sql.py:487} INFO - Running statement: 
+        SELECT order_date, cnt, total_sum
+        FROM orders_daily
+        WHERE order_date = CURRENT_DATE;
+        , parameters: None
+[2026-09-10T18:56:08.211+0000] {sql.py:496} INFO - Rows affected: 1
+[2026-09-10T18:56:08.212+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-10T18:56:08.233+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=orders_agg, task_id=sql_04_select, run_id=manual__2026-09-10T18:56:02.263835+00:00, execution_date=20260910T185602, start_date=20260910T185608, end_date=20260910T185608
+[2026-09-10T18:56:08.260+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-09-10T18:56:08.277+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-10T18:56:08.279+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

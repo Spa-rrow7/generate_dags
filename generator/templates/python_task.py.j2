@@ -1,0 +1,7 @@
+    {{ task_var }} = PythonOperator(
+        task_id="{{ task_id }}",
+        python_callable=getattr(importlib.import_module("scripts.{{ module }}"), "{{ func }}"),
+{%- if conn_id %}
+        op_kwargs={"conn_id": "{{ conn_id }}"},
+{%- endif %}
+    )
